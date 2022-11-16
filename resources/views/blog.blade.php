@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-    <?= $blog ; ?>
+    <h2><?= $blog->title ; ?></h2>
+    <p><?= $blog->body; ?></p>
     <a href="/">go back</a>
 </body>
 </html>
