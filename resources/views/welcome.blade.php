@@ -9,9 +9,8 @@
 </head>
 <body>
     <?php foreach ($blogs as $blog):?>
-        <h2><a href="<?= $blog-> slug?>"><?= $blog-> title?></a></h2>
+        <h2><a href="blogs/<?= $blog-> slug;?>"><?= $blog-> title;?></a></h2>
         <p><?= $blog-> intro?></p>
-        <p><?= $blog-> body?></p>
     <?php endforeach; ?>
 </body>
 </html>
