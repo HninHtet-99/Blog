@@ -11,7 +11,7 @@
     <?php foreach ($blogs as $blog):?>
         <h2><a href="<?= $blog-> slug?>"><?= $blog-> title?></a></h2>
         <p><?= $blog-> intro?></p>
-        <?= $blog-> body?>
+        <p><?= $blog-> body?></p>
     <?php endforeach; ?>
 </body>
 </html>
