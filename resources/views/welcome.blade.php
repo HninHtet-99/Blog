@@ -7,4 +7,5 @@
         <p>published at :: {{$blog->date}}</p>
         <p>{{$blog-> intro}}</p>
     @endforeach
+    
 </x-layout>
