@@ -1,16 +1,8 @@
-@extends('layout')
-
-@section('title')
-
-<title>{{$blog->title}}</title>
-
-@endsection
-
-@section('content')
-
-<h2>{{$blog->title}}</h2>
-<p>{!! $blog->body !!}</p>
-<a href="/">go back</a>
-
-@endsection
-
+<x-layout>
+    <x-slot name="title">
+        <title>{{$blog->title}}</title>
+    </x-slot>
+    <h2>{{$blog->title}}</h2>
+    <p>{!! $blog->body !!}</p>
+    <a href="/">go back</a>
+</x-layout>
