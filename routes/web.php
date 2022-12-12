@@ -20,9 +20,8 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/blogs/{blogName}', function ($id) {
-    // $blogData = Blog::find($slug);
+Route::get('/blogs/{blog}', function (Blog $blog) {
     return view('blog',[
-        'blog' =>  Blog::findOrFail($id)
+        'blog' =>  $blog
     ]);
-})->where('blogName','[A-z\d\-_]+');
+})->where('blog','[A-z\d\-_]+');
