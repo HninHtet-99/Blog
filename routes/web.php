@@ -3,9 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Models\Blog;
 use App\Models\Category;
-use Illuminate\Log\Logger;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Log;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -19,12 +17,8 @@ use Illuminate\Support\Facades\Log;
 */
 
 Route::get('/', function () {
-    DB::listen(function($query){
-        // Log::info('akjfksjd');
-        Logger($query->sql);
-    });
     return view('welcome',[
-        'blogs'=> Blog::all()
+        'blogs'=> Blog::with('category')->get()
     ]);
 });
 
