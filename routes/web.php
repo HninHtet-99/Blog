@@ -18,7 +18,7 @@ use App\Models\User;
 
 Route::get('/', function () {
     return view('welcome',[
-        'blogs'=> Blog::with('category','author')->get()
+        'blogs'=> Blog::all()
     ]);
 });
 
@@ -30,12 +30,12 @@ Route::get('/blogs/{blog:slug}', function (Blog $blog) {
 
 Route::get('/categories/{category:slug}',function(Category $category){
     return view('welcome',[
-        'blogs'=> $category->blogs->load('category','author')
+        'blogs'=> $category->blogs
     ]);
 });
 Route::get('/users/{user}',function(User $user){
     // dd($user);
     return view('welcome',[
-        'blogs'=> $user->blogs->load('category','author')
+        'blogs'=> $user->blogs
     ]);
 });
