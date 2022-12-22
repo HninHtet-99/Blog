@@ -18,7 +18,7 @@ use App\Models\User;
 
 Route::get('/', function () {
     return view('welcome',[
-        'blogs'=> Blog::all()
+        'blogs'=> Blog::latest()->get()
     ]);
 });
 
