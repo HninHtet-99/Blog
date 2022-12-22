@@ -33,7 +33,7 @@ Route::get('/categories/{category:slug}',function(Category $category){
         'blogs'=> $category->blogs
     ]);
 });
-Route::get('/users/{user}',function(User $user){
+Route::get('/users/{user:username}',function(User $user){
     // dd($user);
     return view('welcome',[
         'blogs'=> $user->blogs
