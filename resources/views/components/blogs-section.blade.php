@@ -16,13 +16,15 @@
           <option value="">Filter by Tag</option>
         </select> --}}
       </div>
-      <form action="" class="my-3">
+      <form action="" method="GET" class="my-3">
         <div class="input-group mb-3">
           <input
+            name="search"
             type="text"
             autocomplete="false"
             class="form-control"
             placeholder="Search Blogs..."
+            value="{{request('search')}}"
           />
           <button
             class="input-group-text bg-primary text-light"

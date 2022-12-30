@@ -17,8 +17,12 @@ use App\Models\User;
 */
 
 Route::get('/', function () {
+    $blogs = Blog::latest();
+    if (request('search')) {
+        $blogs=$blogs->where('title','LIKE','%'.request('search').'%');
+    }
     return view('welcome',[
-        'blogs'=> Blog::latest()->get(),
+        'blogs'=> $blogs->get(),
         'categories'=> Category::all()
     ]);
 });
@@ -38,7 +42,6 @@ Route::get('/categories/{category:slug}',function(Category $category){
     ]);
 });
 Route::get('/users/{user:username}',function(User $user){
-    // dd($user);
     return view('welcome',[
         'blogs'=> $user->blogs,
         'categories'=> Category::all()
