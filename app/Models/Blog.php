@@ -18,5 +18,13 @@ class Blog extends Model
     public function author(){
         return $this->belongsTo(User::class,'user_id');
     }
+    public function scopeFilter($query,$search){
+        $query->when(request('search')??false,function($query,$search){
+                $query->where(function($query) use ($search){
+                    $query->where('title','LIKE','%'.$search.'%')
+                        ->orWhere('body','LIKE','%'.$search.'%');
+                });
+            });
+    }
 }
 
